@@ -36,7 +36,11 @@ public class Main {
             System.out.println("  +---+---+---+");
             //check for win
             String winner = "1155";
-            if (board.toString().contains(" ")) {
+            System.out.println(board.toString());
+            if (board.toString().indexOf(" ") == -1) {
+                System.out.println("both of you are equally bad");
+                playing = false;
+            } else {
                 for (int i = 0; i < 3; i++){
                     if (board[i*3+0]==board[i*3+1] || board[i*3+0]==board[i*3+2]){winner = board[i*3+0];}
                     if (board[i]==board[i+3] || board[i]==board[i+6]){winner = board[i];}
@@ -47,9 +51,6 @@ public class Main {
                     System.out.println(winner + " wins!");
                     playing = false;
                 }
-            } else {
-                System.out.println("both of you are equally bad");
-                playing = false;
             }
         }
     }
