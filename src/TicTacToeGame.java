@@ -15,19 +15,24 @@ public class TicTacToeGame {
         board.print();
     }
 
-    private void turn(String player){
+    private void turn(String player, boolean AI){
         if (gameRunning){
             String answer = "";
             int selection = 0;
-            boolean goodResponse = false;
-            while (!goodResponse){
-                System.out.println(player+"'s turn");
-                answer = scanner.nextLine();
-                selection = "ABC".indexOf(Character.toString(answer.charAt(0)))*3 + Integer.parseInt(Character.toString(answer.charAt(1))) - 1;
-                if (selection > -1){
-                    if (board.get(selection) == " "){
-                        board.set(selection,player);
-                        goodResponse = true;
+            if (AI){
+                selection=TicTacToeAI.calculateMove(board.getBoard(), player);
+                board.set(selection,player);
+            } else {
+                boolean goodResponse = false;
+                while (!goodResponse){
+                    System.out.println(player+"'s turn");
+                    answer = scanner.nextLine();
+                    selection = "ABC".indexOf(Character.toString(answer.charAt(0)))*3 + Integer.parseInt(Character.toString(answer.charAt(1))) - 1;
+                    if (selection > -1){
+                        if (board.get(selection) == " "){
+                            board.set(selection,player);
+                            goodResponse = true;
+                        }
                     }
                 }
             }
@@ -40,9 +45,9 @@ public class TicTacToeGame {
         return gameRunning;
     }
 
-    public boolean gameLoop(){
-        turn("X");
-        turn("O");
+    public boolean gameLoop(boolean AI){
+        turn("X", false);
+        turn("O", AI);
         return gameRunning;
     }
 }

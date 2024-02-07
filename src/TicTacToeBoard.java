@@ -13,6 +13,10 @@ public class TicTacToeBoard {
         return board[i];
     }
 
+    public String[] getBoard(){
+        return board;
+    }
+
     public boolean gameStatus(){
         String winner = "1155"; 
         for (int i = 0; i < 3; i++){

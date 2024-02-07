@@ -9,7 +9,7 @@ public class Main {
         while (true) {
             game.reset();
             while (game.running()){
-                game.gameLoop();
+                game.gameLoop(true);
             }
             System.out.println("press enter to continue");
             scanner.nextLine();
