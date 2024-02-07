@@ -27,7 +27,11 @@ public class TicTacToeGame {
                 while (!goodResponse){
                     System.out.println(player+"'s turn");
                     answer = scanner.nextLine();
-                    selection = "ABC".indexOf(Character.toString(answer.charAt(0)))*3 + Integer.parseInt(Character.toString(answer.charAt(1))) - 1;
+                    if (!answer.isBlank()) {
+                        selection = "ABC".indexOf(Character.toString(answer.charAt(0)))*3 + Integer.parseInt(Character.toString(answer.charAt(1))) - 1;
+                    } else {
+                        selection=-1;
+                    }
                     if (selection > -1){
                         if (board.get(selection) == " "){
                             board.set(selection,player);
