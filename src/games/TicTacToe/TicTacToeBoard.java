@@ -1,3 +1,5 @@
+package games.TicTacToe;
+
 public class TicTacToeBoard {
     static String[] board = new String[9];
 
@@ -15,6 +17,14 @@ public class TicTacToeBoard {
 
     public String[] getBoard(){
         return board;
+    }
+
+    public int filledSquares(){
+        int counter = 0;
+        for (int i = 0; i < 9; i++){
+            if (board[i]!= " "){counter++;}
+        }
+        return counter;
     }
 
     public boolean gameStatus(){
