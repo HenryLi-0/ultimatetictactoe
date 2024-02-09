@@ -2,6 +2,7 @@ package games.TicTacToe;
 
 public class TicTacToeBoard {
     static String[] board = new String[9];
+    static String theWinner = "";
 
     public TicTacToeBoard(){
         for (int i = 0; i < 9; i++){board[i] = " ";}
@@ -37,6 +38,7 @@ public class TicTacToeBoard {
         if (board[2]==board[4] && board[2]==board[6] && board[2]!=" "){winner = board[2];}
         if (winner!="1155"){
             System.out.println(winner + " wins!");
+            theWinner=winner;
             return false;
         }
         boolean avaliable=false;
@@ -45,6 +47,7 @@ public class TicTacToeBoard {
         }
         if (!avaliable){
             System.out.println("both of you are equally bad");
+            theWinner="_";
             return false;
         }
         return true;
