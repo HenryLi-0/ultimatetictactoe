@@ -13,6 +13,8 @@ public class Main {
             while (game.running()){
                 game.gameLoop(1,1);
             }
+            System.out.println(game.winner());
+            
             System.out.println("press enter to continue");
             scanner.nextLine();
         }
