@@ -6,7 +6,6 @@ public class TicTacToeGame {
     private TicTacToeBoard board;
     private boolean gameRunning;
     private Scanner scanner = new Scanner(System.in);
-    
     public TicTacToeGame(){
         board = new TicTacToeBoard();
         gameRunning = true;
@@ -55,13 +54,10 @@ public class TicTacToeGame {
         return gameRunning;
     }
 
-    public void gameLoop(int X, int O){
+    public boolean gameLoop(int X, int O){
         // types based on smartness
         turn("X", (X==1), (X==-1));
         turn("O", (O==1), (O==-1));
-    }
-
-    public String winner(){
-        return board.theWinner;
+        return gameRunning;
     }
 }
