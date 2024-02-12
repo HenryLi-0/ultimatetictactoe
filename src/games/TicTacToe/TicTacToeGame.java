@@ -33,7 +33,7 @@ public class TicTacToeGame {
                 while (!goodResponse){
                     System.out.println(player+"'s turn");
                     answer = scanner.nextLine();
-                    if (answer.length() == 2) {
+                    if (answer.length() == 2 && "ABC".indexOf(Character.toString(answer.charAt(0))) != -1 && "123".indexOf(Character.toString(answer.charAt(1))) != -1) {
                         selection = "ABC".indexOf(Character.toString(answer.charAt(0)))*3 + Integer.parseInt(Character.toString(answer.charAt(1))) - 1;
                     } else {
                         selection=-1;
