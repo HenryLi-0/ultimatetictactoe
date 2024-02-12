@@ -14,7 +14,7 @@ public class Test {
         if (ticTacToeTestSecond.passing){
             System.out.println("TicTacToeAI VS Moron Score: (AI Second)");
             System.out.println(ticTacToeTestSecond.correct);
-            System.out.println("/100000");
+            System.out.println("/1000");
         } else {
             System.out.println("TicTacToeAI VS Moron Test Failed (AI Second)");   
             System.out.println(ticTacToeTestSecond.correct);
@@ -24,7 +24,7 @@ public class Test {
         if (ticTacToeTestFirst.passing){
             System.out.println("TicTacToeAI VS Moron Score: (AI Fist)");
             System.out.println(ticTacToeTestSecond.correct);
-            System.out.println("/100000");
+            System.out.println("/1000");
         } else {
             System.out.println("TicTacToeAI VS Moron Test Failed (AI First)");   
             System.out.println(ticTacToeTestSecond.correct);
