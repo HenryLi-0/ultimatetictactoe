@@ -2,13 +2,13 @@ package tests;
 
 import java.util.Scanner;
 
+import games.TicTacToe.TicTacToeBoard;
 import games.TicTacToe.TicTacToeGame;
 
 public class TicTacToeTest {
     static TicTacToeGame game = new TicTacToeGame();
     static Scanner scanner = new Scanner(System.in);
     double correct = 0;
-    boolean passing = true;
 
     public void testAISelf(){
         game.reset();
@@ -19,30 +19,32 @@ public class TicTacToeTest {
     }
 
     public void testAISecond(){
-        if (passing) {
-            game.reset();
-            while (game.running()){
-                game.gameLoop(-1,1);
-            }
-            if (game.winner() == "O" || game.winner() == "_"){
-                correct+=1;
-            } else {
-                passing = false;
-            }
+        game.reset();
+        while (game.running()){
+            game.gameLoop(-1,1);
         }
+        assertBoolean(game.winner() == "O" || game.winner() == "_");
     }  
 
     public void testAIFirst(){
-        if (passing) {
-            game.reset();
-            while (game.running()){
-                game.gameLoop(1,-1);
-            }
-            if (game.winner() == "X" || game.winner() == "_"){
-                correct+=1;
-            } else {
-                passing = false;
-            }
+        game.reset();
+        while (game.running()){
+            game.gameLoop(1,-1);
         }
-    }  
+        assertBoolean(game.winner() == "X" || game.winner() == "_");
+    }
+
+    public void otherTests(){
+        TicTacToeBoard testBoard = new TicTacToeBoard();
+        assertBoolean(testBoard.filledSquares()==0);
+        testBoard.set(0, "X");
+        assertBoolean(testBoard.filledSquares()==1);
+        assertBoolean(testBoard.get(0)=="X");
+    }
+
+    public static void assertBoolean(boolean bool){
+        if (!bool){
+            throw new RuntimeException();
+        }
+    }
 }
