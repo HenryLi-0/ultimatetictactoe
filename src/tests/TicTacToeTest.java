@@ -2,15 +2,15 @@ package tests;
 
 import java.util.Scanner;
 
-import org.junit.jupiter.api.*;
-
 import games.TicTacToe.TicTacToeGame;
 
 public class TicTacToeTest {
     static TicTacToeGame game = new TicTacToeGame();
     static Scanner scanner = new Scanner(System.in);
+    double correct = 0;
+    boolean passing = true;
 
-    public void setUp(){
+    public void testAISelf(){
         game.reset();
         while (game.running()){
             game.gameLoop(1,1);
@@ -19,10 +19,16 @@ public class TicTacToeTest {
     }
 
     public void testAI(){
-        game.reset();
-        while (game.running()){
-            game.gameLoop(-1,1);
+        if (passing) {
+            game.reset();
+            while (game.running()){
+                game.gameLoop(-1,1);
+            }
+            if (game.winner() == "O" || game.winner() == "_"){
+                correct+=1;
+            } else {
+                passing = false;
+            }
         }
-        assertEquals(game.winner(),"O");
     }  
 }

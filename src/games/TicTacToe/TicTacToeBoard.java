@@ -2,7 +2,7 @@ package games.TicTacToe;
 
 public class TicTacToeBoard {
     static String[] board = new String[9];
-    static String theWinner = "";
+    String theWinner = "";
 
     public TicTacToeBoard(){
         for (int i = 0; i < 9; i++){board[i] = " ";}
