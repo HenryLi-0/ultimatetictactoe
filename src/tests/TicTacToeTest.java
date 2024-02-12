@@ -18,13 +18,27 @@ public class TicTacToeTest {
         System.out.println(game.winner());
     }
 
-    public void testAI(){
+    public void testAISecond(){
         if (passing) {
             game.reset();
             while (game.running()){
                 game.gameLoop(-1,1);
             }
             if (game.winner() == "O" || game.winner() == "_"){
+                correct+=1;
+            } else {
+                passing = false;
+            }
+        }
+    }  
+
+    public void testAIFirst(){
+        if (passing) {
+            game.reset();
+            while (game.running()){
+                game.gameLoop(1,-1);
+            }
+            if (game.winner() == "X" || game.winner() == "_"){
                 correct+=1;
             } else {
                 passing = false;

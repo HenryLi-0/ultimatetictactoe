@@ -8,7 +8,7 @@ public class TicTacToeAI {
             if (filledSquares % 2 == 1) {if (i==0 || i==2 || i==6 || i==8){priority[i]+=5;}}
                 // else if (i==1 || i==3 || i==5 || i==7){priority[i]+=2;}
         }
-        if (filledSquares==1){priority[4]+=10;}
+        if (filledSquares==0 || filledSquares==1){priority[4]+=100;}
         for (int i = 0; i < 3; i++){
             if (board[i*3+0]==board[i*3+1] && board[i*3+0]!=" ") {priority[i*3+2]+=100;}
             if (board[i*3+0]==board[i*3+2] && board[i*3+0]!=" ") {priority[i*3+1]+=100;}
