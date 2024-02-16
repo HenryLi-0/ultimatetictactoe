@@ -2,11 +2,13 @@ package games.UltimateTicTacToe;
 
 public class UltimateTicTacToeBoard {
     static String[][] board = new String[9][9];
+    static String[] winningboards = new String[9];
     String theWinner = "";
 
     public UltimateTicTacToeBoard(){
         for (int b = 0; b < 9; b++){
             for (int i = 0; i < 9; i++){board[b][i] = " ";}
+            winningboards[b] = "";
         }
     }
 
@@ -31,39 +33,70 @@ public class UltimateTicTacToeBoard {
     }
 
     public boolean gameStatus(){
-        // String winner = "1155"; 
-        // for (int i = 0; i < 3; i++){
-        //     if (board[i*3+0]==board[i*3+1] && board[i*3+0]==board[i*3+2] && board[i*3+0]!=" "){winner = board[i*3+0];}
-        //     if (board[i]==board[i+3] && board[i]==board[i+6] && board[i]!=" "){winner = board[i];}
-        // }
-        // if (board[0]==board[4] && board[0]==board[8] && board[0]!=" "){winner = board[0];}
-        // if (board[2]==board[4] && board[2]==board[6] && board[2]!=" "){winner = board[2];}
-        // if (winner!="1155"){
-        //     System.out.println(winner + " wins!");
-        //     theWinner=winner;
-        //     return false;
-        // }
-        // boolean avaliable=false;
-        // for (int i = 0; i < board.length; i++) {
-        //     if (board[i]==" "){avaliable=true;}
-        // }
-        // if (!avaliable){
-        //     System.out.println("both of you are equally bad");
-        //     theWinner="_";
-        //     return false;
-        // }
+        for (int b = 0; b < 9; b++){
+            String winner = " "; 
+            for (int i = 0; i < 3; i++){
+                if (board[b][i*3+0]==board[b][i*3+1] && board[b][i*3+0]==board[b][i*3+2] && board[b][i*3+0]!=" "){winner = board[b][i*3+0];}
+                if (board[b][i]==board[b][i+3] && board[b][i]==board[b][i+6] && board[b][i]!=" "){winner = board[b][i];}
+            }
+            if (board[b][0]==board[b][4] && board[b][0]==board[b][8] && board[b][0]!=" "){winner = board[b][0];}
+            if (board[b][2]==board[b][4] && board[b][2]==board[b][6] && board[b][2]!=" "){winner = board[b][2];}
+            if (winner!=" "){
+                winningboards[b]=winner;
+            }
+            boolean avaliable=false;
+            for (int i = 0; i < board[b].length; i++) {
+                if (board[b][i]==" "){avaliable=true;}
+            }
+            if (!avaliable){
+                theWinner="_";
+            }
+            if (winner!=" "){
+                winningboards[b] = theWinner;
+            }
+        }
+
+        String winner = "1155"; 
+        for (int i = 0; i < 3; i++){
+            if (winningboards[i*3+0]==winningboards[i*3+1] && winningboards[i*3+0]==winningboards[i*3+2] && winningboards[i*3+0]!=""){winner = winningboards[i*3+0];}
+            if (winningboards[i]==winningboards[i+3] && winningboards[i]==winningboards[i+6] && winningboards[i]!=""){winner = winningboards[i];}
+        }
+        if (winningboards[0]==winningboards[4] && winningboards[0]==winningboards[8] && winningboards[0]!=""){winner = winningboards[0];}
+        if (winningboards[2]==winningboards[4] && winningboards[2]==winningboards[6] && winningboards[2]!=""){winner = winningboards[2];}
+        if (winner!="1155"){
+            System.out.println(winningboards[2] +"?");
+            System.out.println(winner + " wins!");
+            theWinner=winner;
+            return false;
+        }
+        boolean avaliable=false;
+        for (int i = 0; i < winningboards.length; i++) {
+            if (winningboards[i]==""){avaliable=true;}
+            System.out.println(winningboards[i]);
+        }
+        if (!avaliable){
+            System.out.println("both of you are equally bad");
+            theWinner="_";
+            return false;
+        }
         return true;
     }
 
     public void print(){
-        System.out.println("    1   2   3   4   5   6   7   8   9  ");
+        System.out.println("+++++++++++++           +---+---+---+");
+        System.out.println("# A # B # C # Ultimate  | 1 | 2 | 3 |");
+        System.out.println("+++++++++++++           +---+---+---+");
+        System.out.println("# D # E # F # Tic Tac   | 4 | 5 | 6 |");
+        System.out.println("+++++++++++++           +---+---+---+");
+        System.out.println("# G # H # I # Toe       | 7 | 8 | 9 |");
+        System.out.println("+++++++++++++           +---+---+---+");
             for (int i = 0; i < 9; i++){
-                System.out.println("  +---+---+---+---+---+---+---+---+---+");
-                System.out.println("ABCDEFGHI".charAt(i) + " | " 
-                + board[((int) Math.floor(i/3))*3][(i%3)*3] + " | " + board[((int) Math.floor(i/3))*3][(i%3)*3+1] + " | " + board[((int) Math.floor(i/3))*3][(i%3)*3+2] 
+                System.out.println("+---+---+---+---+---+---+---+---+---+");
+                System.out.println("| " + board[((int) Math.floor(i/3))*3][(i%3)*3] + " | " + board[((int) Math.floor(i/3))*3][(i%3)*3+1] + " | " + board[((int) Math.floor(i/3))*3][(i%3)*3+2] 
                 + " | " + board[((int) Math.floor(i/3))*3+1][(i%3)*3] + " | " + board[((int) Math.floor(i/3))*3+1][(i%3)*3+1] + " | " + board[((int) Math.floor(i/3))*3+1][(i%3)*3+2] 
-                + " | " + board[((int) Math.floor(i/3))*3+2][(i%3)*3] + " | " + board[((int) Math.floor(i/3))*3+2][(i%3)*3+1] + " | " + board[((int) Math.floor(i/3))*3+2][(i%3)*3+2] + " |");
+                + " | " + board[((int) Math.floor(i/3))*3+2][(i%3)*3] + " | " + board[((int) Math.floor(i/3))*3+2][(i%3)*3+1] + " | " + board[((int) Math.floor(i/3))*3+2][(i%3)*3+2] 
+                + " |");
             }
-            System.out.println("  +---+---+---+---+---+---+---+---+---+");
+            System.out.println("+---+---+---+---+---+---+---+---+---+");
     }
 }
