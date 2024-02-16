@@ -3,7 +3,7 @@ package tests;
 public class Test {
     final int REPEATS = 1000;
     public void test(){
-        TicTacToeTest ticTacToeTest = new TicTacToeTest();
+        UltimateTicTacToeTest ticTacToeTest = new UltimateTicTacToeTest();
         int i = 0;
         while (i<REPEATS){
             ticTacToeTest.testAISecond();

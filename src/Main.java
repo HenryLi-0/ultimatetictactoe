@@ -4,7 +4,7 @@ import games.UltimateTicTacToe.UltimateTicTacToeGame;
 import tests.Test;
 
 public class Main {
-    static boolean test = true;
+    static boolean test = false;
 
     //init
     static UltimateTicTacToeGame game = new UltimateTicTacToeGame();

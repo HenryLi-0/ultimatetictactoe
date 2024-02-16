@@ -21,33 +21,35 @@ public class UltimateTicTacToeGame {
     private void turn(String player, boolean AI, boolean MORON){
         if (gameRunning){
             String answer = "";
-            int selection = 0;
+            int[] selection = {-1,-1};
             if (AI){
-                selection=UltimateTicTacToeAI.calculateMove(board.getBoard(), player, board.filledSquares());
-                board.set(selection,player);
+                selection=UltimateTicTacToeAI.calculateMove(board.getBoard(), player);
+                board.set(selection[0], selection[1], player);
             } else if (MORON){
                 selection=UltimateTicTacToeMoron.calculateMove(board.getBoard());
-                board.set(selection,player);
+                board.set(selection[0], selection[1], player);
             } else {
                 boolean goodResponse = false;
                 while (!goodResponse){
                     System.out.println(player+"'s turn");
                     answer = scanner.nextLine();
-                    if (answer.length() == 2 && "ABC".indexOf(Character.toString(answer.charAt(0))) != -1 && "123".indexOf(Character.toString(answer.charAt(1))) != -1) {
-                        selection = "ABC".indexOf(Character.toString(answer.charAt(0)))*3 + Integer.parseInt(Character.toString(answer.charAt(1))) - 1;
+                    if (answer.length() == 2 && "ABCDEFGHI".indexOf(Character.toString(answer.charAt(0))) != -1 && "123456789".indexOf(Character.toString(answer.charAt(1))) != -1) {
+                        selection[0] = "ABCDEFGHI".indexOf(Character.toString(answer.charAt(0)));
+                        selection[1] = Integer.parseInt(Character.toString(answer.charAt(1))) - 1;
                     } else {
-                        selection=-1;
+                        selection[0] = -1;
+                        selection[1] = -1;
                     }
-                    if (selection > -1){
-                        if (board.get(selection) == " "){
-                            board.set(selection,player);
+                    if (selection[0] > -1 && selection[1] > -1){
+                        if (board.get(selection[0], selection[1]) == " "){
+                            board.set(selection[0], selection[1], player);
                             goodResponse = true;
                         }
                     }
                 }
             }
         board.print();
-        gameRunning=board.gameStatus();
+        gameRunning=board.gameStatus(); 
         }
     }
 

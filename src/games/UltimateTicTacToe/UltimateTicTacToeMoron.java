@@ -1,11 +1,8 @@
 package games.UltimateTicTacToe;
 
 public class UltimateTicTacToeMoron {
-    public static int calculateMove(String[] board){
-        int choice = (int) Math.round(Math.random()*8);
-        while (board[choice]!=" "){
-           choice = (int) Math.round(Math.random()*8);
-        }
+    public static int[] calculateMove(String[][] board){
+        int[] choice = {(int) Math.round(Math.random()*8), (int) Math.round(Math.random()*8)};
         return choice;
     }
 }
