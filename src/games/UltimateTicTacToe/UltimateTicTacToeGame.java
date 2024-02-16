@@ -1,19 +1,19 @@
-package games.TicTacToe;
+package games.UltimateTicTacToe;
 
 import java.util.Scanner;
 
-public class TicTacToeGame {
-    private TicTacToeBoard board;
+public class UltimateTicTacToeGame {
+    private UltimateTicTacToeBoard board;
     private boolean gameRunning;
     private Scanner scanner = new Scanner(System.in);
     
-    public TicTacToeGame(){
-        board = new TicTacToeBoard();
+    public UltimateTicTacToeGame(){
+        board = new UltimateTicTacToeBoard();
         gameRunning = true;
     }
 
     public void reset(){
-        board = new TicTacToeBoard();
+        board = new UltimateTicTacToeBoard();
         gameRunning = true;
         board.print();
     }
@@ -23,10 +23,10 @@ public class TicTacToeGame {
             String answer = "";
             int selection = 0;
             if (AI){
-                selection=TicTacToeAI.calculateMove(board.getBoard(), player, board.filledSquares());
+                selection=UltimateTicTacToeAI.calculateMove(board.getBoard(), player, board.filledSquares());
                 board.set(selection,player);
             } else if (MORON){
-                selection=TicTacToeMoron.calculateMove(board.getBoard());
+                selection=UltimateTicTacToeMoron.calculateMove(board.getBoard());
                 board.set(selection,player);
             } else {
                 boolean goodResponse = false;

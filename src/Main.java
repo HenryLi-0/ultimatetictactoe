@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-import games.TicTacToe.TicTacToeGame;
+import games.UltimateTicTacToe.UltimateTicTacToeGame;
 import tests.Test;
 
 public class Main {
     static boolean test = true;
 
     //init
-    static TicTacToeGame game = new TicTacToeGame();
+    static UltimateTicTacToeGame game = new UltimateTicTacToeGame();
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {

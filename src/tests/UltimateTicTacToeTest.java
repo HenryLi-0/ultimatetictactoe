@@ -2,11 +2,11 @@ package tests;
 
 import java.util.Scanner;
 
-import games.TicTacToe.TicTacToeBoard;
-import games.TicTacToe.TicTacToeGame;
+import games.UltimateTicTacToe.UltimateTicTacToeBoard;
+import games.UltimateTicTacToe.UltimateTicTacToeGame;
 
-public class TicTacToeTest {
-    static TicTacToeGame game = new TicTacToeGame();
+public class UltimateTicTacToeTest {
+    static UltimateTicTacToeGame game = new UltimateTicTacToeGame();
     static Scanner scanner = new Scanner(System.in);
     double correct = 0;
 
@@ -35,7 +35,7 @@ public class TicTacToeTest {
     }
 
     public void otherTests(){
-        TicTacToeBoard testBoard = new TicTacToeBoard();
+        UltimateTicTacToeBoard testBoard = new UltimateTicTacToeBoard();
         assertBoolean(testBoard.filledSquares()==0);
         testBoard.set(0, "X");
         assertBoolean(testBoard.filledSquares()==1);

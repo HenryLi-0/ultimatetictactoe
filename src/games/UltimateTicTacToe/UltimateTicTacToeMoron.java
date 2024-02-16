@@ -1,6 +1,6 @@
-package games.TicTacToe;
+package games.UltimateTicTacToe;
 
-public class TicTacToeMoron {
+public class UltimateTicTacToeMoron {
     public static int calculateMove(String[] board){
         int choice = (int) Math.round(Math.random()*8);
         while (board[choice]!=" "){

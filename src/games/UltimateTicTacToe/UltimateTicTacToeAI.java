@@ -1,6 +1,6 @@
-package games.TicTacToe;
+package games.UltimateTicTacToe;
 
-public class TicTacToeAI {
+public class UltimateTicTacToeAI {
     public static int calculateMove(String[] board, String me, int filledSquares){
         int[] priority = new int[9];
         for (int i = 0; i < board.length; i++){

@@ -1,10 +1,10 @@
-package games.TicTacToe;
+package games.UltimateTicTacToe;
 
-public class TicTacToeBoard {
+public class UltimateTicTacToeBoard {
     static String[] board = new String[9];
     String theWinner = "";
 
-    public TicTacToeBoard(){
+    public UltimateTicTacToeBoard(){
         for (int i = 0; i < 9; i++){board[i] = " ";}
     }
 
