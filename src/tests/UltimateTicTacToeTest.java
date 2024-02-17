@@ -23,7 +23,7 @@ public class UltimateTicTacToeTest {
         while (game.running()){
             game.gameLoop(-1,1);
         }
-        assertBoolean(game.winner() == "O" || game.winner() == "_");
+        assertBoolean(game.winner() == "O" || game.winner() == "█");
     }  
 
     public void testAIFirst(){
@@ -31,15 +31,15 @@ public class UltimateTicTacToeTest {
         while (game.running()){
             game.gameLoop(1,-1);
         }
-        assertBoolean(game.winner() == "X" || game.winner() == "_");
+        assertBoolean(game.winner() == "X" || game.winner() == "█");
     }
 
     public void otherTests(){
         UltimateTicTacToeBoard testBoard = new UltimateTicTacToeBoard();
-        assertBoolean(testBoard.filledSquares()==0);
-        testBoard.set(0, "X");
-        assertBoolean(testBoard.filledSquares()==1);
-        assertBoolean(testBoard.get(0)=="X");
+        assertBoolean(testBoard.filledSquares(0)==0);
+        testBoard.set(0, 0, "X");
+        assertBoolean(testBoard.filledSquares(0)==1);
+        assertBoolean(testBoard.get(0, 0)=="X");
     }
 
     public static void assertBoolean(boolean bool){

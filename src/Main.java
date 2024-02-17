@@ -18,7 +18,7 @@ public class Main {
             while (true) {
                 game.reset();
                 while (game.running()){
-                    game.gameLoop(0,1);
+                    game.gameLoop(0,-1);
                 }
                 System.out.println(game.winner());
                 
