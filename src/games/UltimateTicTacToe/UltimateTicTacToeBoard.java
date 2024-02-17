@@ -84,8 +84,10 @@ public class UltimateTicTacToeBoard {
             return false;
         }
         boolean avaliable=false;
-        for (int i = 0; i < winningboards.length; i++) {
-            if (winningboards[i]==""){avaliable=true;}
+        for (int b = 0; b < 9; b++) {
+            for (int i = 0; i < 9; i++) {
+                if (board[b][i]==" "){avaliable=true;}
+            }
         }
         if (!avaliable){
             print(-1);
