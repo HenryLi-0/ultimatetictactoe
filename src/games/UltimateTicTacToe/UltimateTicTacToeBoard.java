@@ -99,6 +99,7 @@ public class UltimateTicTacToeBoard {
     }
 
     public void print(int lastMiniGame){
+        System.out.println("==============================================");
         System.out.println(" +++++++++++++             +---+---+---+");
         System.out.println(" # A # B # C #   Ultimate  | 1 | 2 | 3 |");
         System.out.println(" +++++++++++++             +---+---+---+");
@@ -106,21 +107,21 @@ public class UltimateTicTacToeBoard {
         System.out.println(" +++++++++++++             +---+---+---+");
         System.out.println(" # G # H # I #   Toe       | 7 | 8 | 9 |");
         System.out.println(" +++++++++++++             +---+---+---+");
-            for (int i = 0; i < 9; i++){
-                if (i % 3 == 0){
-                    System.out.println("++===+===+===++===+===+===++===+===+===++"); System.out.println("++===+===+===++===+===+===++===+===+===++");
-                } else {
-                    System.out.println("++---+---+---++---+---+---++---+---+---++");
-                }
-                System.out.println("||" + "\033[0m"
-                + ((lastMiniGame == ((int) Math.floor(i/3))*3) ? "\033[0;100m" : "")  + " "
-                + board[((int) Math.floor(i/3))*3][(i%3)*3] + " | " + board[((int) Math.floor(i/3))*3][(i%3)*3+1] + " | " + board[((int) Math.floor(i/3))*3][(i%3)*3+2] 
-                + " " + "\033[0m" + "||" + ((lastMiniGame == ((int) Math.floor(i/3))*3+1) ? "\033[0;100m" : "") + " "
-                + board[((int) Math.floor(i/3))*3+1][(i%3)*3] + " | " + board[((int) Math.floor(i/3))*3+1][(i%3)*3+1] + " | " + board[((int) Math.floor(i/3))*3+1][(i%3)*3+2] 
-                + " " + "\033[0m" + "||" + ((lastMiniGame == ((int) Math.floor(i/3))*3+2) ? "\033[0;100m" : "") + " "
-                + board[((int) Math.floor(i/3))*3+2][(i%3)*3] + " | " + board[((int) Math.floor(i/3))*3+2][(i%3)*3+1] + " | " + board[((int) Math.floor(i/3))*3+2][(i%3)*3+2] 
-                + " " + "\033[0m" +"||");
+        for (int i = 0; i < 9; i++){
+            if (i % 3 == 0){
+                System.out.println("++===+===+===++===+===+===++===+===+===++"); System.out.println("++===+===+===++===+===+===++===+===+===++");
+            } else {
+                System.out.println("++---+---+---++---+---+---++---+---+---++");
             }
-            System.out.println("++===+===+===++===+===+===++===+===+===++");System.out.println("++===+===+===++===+===+===++===+===+===++");
+            System.out.println("||" + "\033[0m"
+            + ((lastMiniGame == ((int) Math.floor(i/3))*3) ? "\033[0;100m" : "")  + " "
+            + board[((int) Math.floor(i/3))*3][(i%3)*3] + " | " + board[((int) Math.floor(i/3))*3][(i%3)*3+1] + " | " + board[((int) Math.floor(i/3))*3][(i%3)*3+2] 
+            + " " + "\033[0m" + "||" + ((lastMiniGame == ((int) Math.floor(i/3))*3+1) ? "\033[0;100m" : "") + " "
+            + board[((int) Math.floor(i/3))*3+1][(i%3)*3] + " | " + board[((int) Math.floor(i/3))*3+1][(i%3)*3+1] + " | " + board[((int) Math.floor(i/3))*3+1][(i%3)*3+2] 
+            + " " + "\033[0m" + "||" + ((lastMiniGame == ((int) Math.floor(i/3))*3+2) ? "\033[0;100m" : "") + " "
+            + board[((int) Math.floor(i/3))*3+2][(i%3)*3] + " | " + board[((int) Math.floor(i/3))*3+2][(i%3)*3+1] + " | " + board[((int) Math.floor(i/3))*3+2][(i%3)*3+2] 
+            + " " + "\033[0m" +"||");
+        }
+        System.out.println("++===+===+===++===+===+===++===+===+===++");System.out.println("++===+===+===++===+===+===++===+===+===++");
     }
 }

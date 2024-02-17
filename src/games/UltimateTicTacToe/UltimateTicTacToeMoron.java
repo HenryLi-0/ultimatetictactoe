@@ -7,7 +7,6 @@ public class UltimateTicTacToeMoron {
             choice[0] = ((lastMiniGame == -1) ? (int) Math.round(Math.random()*8) : lastMiniGame);
             choice[1] = (int) Math.round(Math.random()*8);
         }
-        System.out.println(choice);
         return choice;
     }
 }

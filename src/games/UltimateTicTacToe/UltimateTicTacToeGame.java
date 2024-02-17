@@ -18,9 +18,10 @@ public class UltimateTicTacToeGame {
         gameRunning = true;
         board.print(lastMiniGame);
     }
-
+    
     private void turn(String player, boolean AI, boolean MORON){
         if (gameRunning){
+            board.print(lastMiniGame);
             String answer = "";
             int[] selection = {-1,-1};
             if (lastMiniGame != -1){
@@ -86,7 +87,6 @@ public class UltimateTicTacToeGame {
                     }
                 }
             }
-        board.print(lastMiniGame);
         gameRunning=board.gameStatus(); 
         }
     }
