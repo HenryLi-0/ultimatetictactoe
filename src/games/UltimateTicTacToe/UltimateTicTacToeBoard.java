@@ -15,6 +15,10 @@ public class UltimateTicTacToeBoard {
     public void set(int b, int i, String player){
         board[b][i] = player;
     }
+    
+    public void setBoard(String[][] nBoard){
+        board = nBoard;
+    }
 
     public String get(int b, int i){
         return board[b][i];
@@ -65,7 +69,7 @@ public class UltimateTicTacToeBoard {
         return winner;
     }
 
-    public boolean gameStatus(){
+    public boolean gameStatus(boolean message){
         for (int b = 0; b < 9; b++){
             miniGameStatus(b);
         }
@@ -78,8 +82,8 @@ public class UltimateTicTacToeBoard {
         if (winningboards[0]==winningboards[4] && winningboards[0]==winningboards[8] && winningboards[0]!="" && winningboards[0]!="█"){winner = winningboards[0];}
         if (winningboards[2]==winningboards[4] && winningboards[2]==winningboards[6] && winningboards[2]!="" && winningboards[2]!="█"){winner = winningboards[2];}
         if (winner!="1155"){
-            print(-1);
-            System.out.println(winner + " wins!");
+            if (message) {print(-1);
+            System.out.println(winner + " wins!");}
             theWinner=winner;
             return false;
         }
@@ -90,8 +94,8 @@ public class UltimateTicTacToeBoard {
             }
         }
         if (!avaliable){
-            print(-1);
-            System.out.println("both of you are equally bad");
+            if (message) {print(-1);
+            System.out.println("both of you are equally bad");}
             theWinner="█";
             return false;
         }

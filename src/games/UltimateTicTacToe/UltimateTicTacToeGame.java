@@ -87,7 +87,7 @@ public class UltimateTicTacToeGame {
                     }
                 }
             }
-        gameRunning=board.gameStatus(); 
+        gameRunning=board.gameStatus(true); 
         }
     }
 
